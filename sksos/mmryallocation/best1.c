@@ -2,7 +2,7 @@
 #include<unistd.h>
 void main()
 {
-int a,i,k,pno,bs[90],bno,ps[90],q[90],no=0,f[90],alloct[90],j,lowest=999,par[90],bar[90],z,temp=0,frgmnt[90],flag=0;
+int a,i,k,pno,bs[90],bno,ps[90],q[90],no=0,f[90],alloct[90],j,fgmnt[90],flag=0;
 printf("FIRST IN FIRST OUT\n");
 printf("\t\t\n enter the no of blocks\n");
 scanf("%d",&bno);
@@ -55,18 +55,14 @@ for(i=0;i<pno;i++)
 		{
 		 flag=0;
 		}
-	/*f[no]=a-ps[i];
-	 q[i]=f[no];*/
 	if(flag==z)
 		{
 		 printf("%d\t\t%d\t\tNOT\t\tNOT\t\tNOT\n",i+1,ps[i]);
 		 flag=0;
 		 continue;
 		}
-	f[no]=a-ps[i];
-	 q[i]=f[no];	
-	
-		
+	fgmt[no]=a-ps[i];
+	 q[i]=fgmnt[no];	
 		 printf("%d\t\t\t%d\t\t\t%d\t\t\t%d\t\t\t%d\n",i+1,ps[i],no+1,a,q[i]);
 		
 
