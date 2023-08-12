@@ -3,7 +3,7 @@
 void main()
 {
 int a,i,k,pno,bs[90],bno,ps[90],q[90],no=0,f[90],alloct[90],j,fgmnt[90],flag=0;
-printf("FIRST IN FIRST OUT\n");
+printf("BEST FIT\n");
 printf("\t\t\n enter the no of blocks\n");
 scanf("%d",&bno);
 printf("enter the size of each blocks \n");
