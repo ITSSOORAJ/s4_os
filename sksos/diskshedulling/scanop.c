@@ -62,7 +62,6 @@ for(i=temp1+2,j=0;j<temp2;j++,i++)
 	{
 	 q[i]=q2[j];
 	}
-	q[i]=0;
 	q[0]=head;
 	for(i=0;i<=n+1;i++)//i<=n+1 came because here an additional of last cylinder 200 had been occupied its position as q[i]=max
 	{
