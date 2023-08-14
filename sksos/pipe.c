@@ -4,7 +4,7 @@ int main()
 {
 int pfds1[2],pfds2[2];
 char pipe1writemessage[60]="namasthe";
-char pipe2writemessage[60]="vankkam";
+char pipe2writemessage[60]="HELLO";
 char readmessage[90];
 int rs1,rs2;
 pid_t pid;
