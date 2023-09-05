@@ -1,75 +1,61 @@
 #include<stdio.h>
-#include<unistd.h>
+#include<stdlib.h>
 void main()
 {
-int n,i,j,k,bt[90],prio[90],pid[90],tat[90],wt[90],ct[90];
-printf("enter the number of the processes \n");
+int bt[90],wt[90],tat[90],p[90],pr[90];
+int sum=0,add=0;
+int n,i,j;
+//int awt,atat;
+printf("enter the no of processses \n");
 scanf("%d",&n);
-printf("ENTER THE DETAILS REGARDING PROCESSES \n\n");
-printf("|PID\t|PRIORITY|BURSTTIME |\n");
+printf("enter the processid and burst time and priority \n");
 for(i=0;i<n;i++)
-	{
-	 scanf("%d%d%d",&pid[i],&prio[i],&bt[i]);
-	}
-for(i=0;i<n;i++)
-	{
-	for(j=i+1;j<n;j++)
-		{
-		 if(prio[i]>prio[j])
-			{
-			 int temp1=prio[j];
-			     prio[j]=prio[i];
-			     prio[i]=temp1;
-			 int temp2=bt[j];
-				bt[j]=bt[i];
-				bt[i]=temp2;
-			 int temp3=pid[j];
-				pid[j]=pid[i];
-				pid[i]=temp3;
-			}
-		}
-	}
-int add=0,addta=0;
-//tat[0]=bt[0];
-//wt[0]=0;
-for(k=0;k<n;k++)
-	{
-	//for(j=0;j<i;j++)
-		//{
-		 //tat[i]=0;
-		  if(k==0)
-			{
-			 tat[k]=bt[k];
-			 addta=addta+tat[k];
-			}
-		  else
-			{
-		  
-		 tat[k]=tat[k-1]+bt[k];
-		 addta=addta+tat[k];
-		   
-		 //tat[i]=tat[i]+bt[j];
-		  //addta=addta+tat[i];
-			 }
-	}
+        {
+         //printf("processid & BURST TIME :\t\n",i) ;
+         scanf("%d%d%d",&p[i],&bt[i],&pr[i]);
+        }
 for(i=0;i<n;i++)
 {
-//for(j=0;j<i;j++)
-	
-	// wt[i]=0;
-	 wt[i]=tat[i]-bt[i];
-	 add=add+wt[i];
-	//}
-}
-printf("PID\t|PRIO\t|BRSTTME\t|TAT\t|WT\t|\n");
-for(i=0;i<n;i++)
+for(j=i+1;j<n;j++)
 	{
-	 printf("%d\t|%d\t|%d\t|%d\t|%d\t|\n\n",pid[i],prio[i],bt[i],tat[i],wt[i]);
-	}
-printf("tat%d....wt%d",addta,add);
-double avt=addta/n;
-float avw=add/n;
-printf("AVGTAT=%f",avt);
-printf("AVGWT=%f",avw);
-}
+	 if(pr[i]>pr[j])
+		{
+		 int temp= bt[i];
+		 bt[i]=bt[j];
+		 bt[j]=temp;
+			
+	         temp = pr[i];
+		  pr[i]=pr[j];
+		  pr[j]=pr[i];
+			
+		int temp1=p[i];
+		    p[i]=p[j];
+		    p[j]=temp1;
+	
+		}
 
+}	}
+wt[0]=0;
+printf("WAITING TIME OF P[0] : \t%d\n",wt[0]);
+for(i=1;i<n;i++)
+        {
+         wt[i]=wt[i-1]+bt[i-1];
+        printf( "WAITING TIME OF P[%d]: \t%d\n",i,wt[i]);
+         sum=sum+wt[i];
+        }
+for(i=0;i<n;i++)
+        {
+         tat[i]=wt[i]+bt[i];
+         add=add+tat[i];
+        }
+printf("PROCESS \t\t BURSTTIME \t\t PRIORITY \t\t WAITINGTIME \t\t TURNTIME \t\t\n");
+for(i=0;i<n;i++)
+{
+printf("    p%d \t\t %d \t\t\t\t %d \t\t\t\t %d \t\t\t\t %d\n",p[i],bt[i],pr[i],wt[i],tat[i]);
+}
+float awt=(float)sum/n;
+printf("AVERAGE WAITING TIMR %f",awt);
+float atat=(float)add/n;
+printf("AVERAGE TURN AROUND TIME %f",atat);
+
+}
