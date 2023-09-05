@@ -8,11 +8,10 @@ int n,i;
 int awt,atat;
 printf("enter the no of processses \n");
 scanf("%d",&n);
-printf("enter the burst time of each processes_>>>>>> \n");
+printf("enter the processid & burst timeof each processes \n");
 for(i=0;i<n;i++)
         {
-         printf("BURST TIME OF P[%d] :\t\n",i);
-         scanf("%d",&bt[i]);
+         scanf("%d",&p[i],&bt[i]);
         }
 for(i=0;i<n;i++)
 {
@@ -41,7 +40,7 @@ printf("WAITING TIME OF P[0] : \t%d\n",wt[0]);
 for(i=1;i<n;i++)
         {
          wt[i]=wt[i-1]+bt[i-1];
-        printf( "WAITING TIME OF P[%d]: \t%d\n",i,wt[i]);
+        printf( "WAITING TIME OF P%d: \t%d\n",p[i],wt[i]);
          sum=sum+wt[i];
         }
 for(i=0;i<n;i++)
